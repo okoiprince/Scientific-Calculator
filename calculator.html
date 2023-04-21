@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr"> 
+<head>
+<title>
+Scientific Calculator
+</title>
+<!--CSS SET THE SYSTEM GRADIENT AND FONT SIZE-->
+<style type="text/css" rel="stylesheet">
+body
+{
+background-color:yellow;
+}
+
+
+input{ cursor:pointer;}
+
+body{ padding:4px 5px; 
+ width:100%;
+ height:100%;
+ position:100%;
+ background-size:90% ;
+ background-image: no-repeat;
+ background:-webkit-linear-gradient(bottom, white, blue);
+background: -moz-linear-gradient(bottom, white, blue);
+background: linear-gradient(bottom, white, blue);  }
+
+h1 { font-family: Segoe UI Black;
+text-shadow: -4px 4px 6px dimgrey;/*Add shadow to the head font*/}
+
+h1:first-letter{ font-weight:bold;
+  font-size: 24pt;
+  color:yellow;}
+</style>
+
+</head>
+
+<body>
+<center>
+<h1 style="color: white;"> Prince Okoi Mini Scientific Calculator</h1>
+<form name="formName">
+<br/>
+<hr size="20px" width="90%" color="red">
+
+<table width="20%" border="9px" style= "color:#fff">
+
+<tbody>
+<tr><th>
+<!--SET THE CALCULATOR DISPLAY AND A JAVASCRIPT CALL TO ACTION ONCLICK EVENT-->
+<input type="display" name="calDisplay" placeholder="0" style="width:10em; font-size:18pt; height:35px; text-align:right; border:5px; border-style:outset;" ><br/>
+<p>
+<!--SET EACH PARAGRAPH BUTTON -->
+<input type="button" value="7" onclick="document.formName.calDisplay.value +='7' "  style= "width:40px; height:40px">
+<input type="button" value="8" onclick="document.formName.calDisplay.value +='8' " style= "width:40px; height:40px">
+<input type="button" value="9" onclick="document.formName.calDisplay.value +='9' " style= "width:40px; height:40px">
+<input type="button" value="%" onclick="signMod()" style= "width:40px; height:40px">
+<input type="button" value="c" onclick="signClear()" style= "width:40px; height:40px">
+<br/>
+<input type="button" value="4" onclick="document.formName.calDisplay.value +='4' " style= "width:40px; height:40px">
+<input type="button" value="5" onclick="document.formName.calDisplay.value +='5' " style= "width:40px; height:40px">
+<input type="button" value="6" onclick="document.formName.calDisplay.value +='6' " style= "width:40px; height:40px">
+<input type="button" value="sin" onclick="document.formName.calDisplay.value=Math.sin(document.formName.calDisplay.value) " style= "width:40px; height:40px">
+<input type="button" value="-" onclick="signMinus() +='-' " style= "width:40px; height:40px">
+
+<br/><p style="position:relative; top:-15px;">
+<input type="button" value="1" onclick="document.formName.calDisplay.value +='1' " style= "width:40px; height:40px">
+<input type="button" value="2" onclick="document.formName.calDisplay.value +='2' " style= "width:40px; height:40px">
+<input type="button" value="3" onclick="document.formName.calDisplay.value +='3' " style= "width:40px; height:40px">
+<input type="button" value="cos" onclick="document.formName.calDisplay.value =Math.cos(document.formName.calDisplay.value) " style= "width:40px; height:40px">
+<input type="button" value="*" onclick="signMult() +='*' " style= "width:40px; height:40px;">
+<br/></p>
+<p style="position:relative; top:-28px; text-align:left; margin-left:7%;">
+<input type="button" value="0" onclick="document.formName.calDisplay.value +='0' " style= "width:40px; height:40px">
+<input type="button" value="00" onclick="document.formName.calDisplay.value +='00' " style= "width:40px; height:40px">
+<input type="button" value="tan" onclick="document.formName.calDisplay.value =Math.tan(document.formName.calDisplay.value) " style= "width:40px; height:40px;">
+<input type="button" value="log" onclick="document.formName.calDisplay.value =Math.log(document.formName.calDisplay.value) " style= "width:40px; height:40px;">
+<input type="button" value="/" onclick="signDiv() +='/' " style= "width:40px; height:40px;">
+</p>
+<p style="position:relative; top:-62px; text-align:left; margin-left:7%;">
+<input type="button" value="." onclick="document.formName.calDisplay.value +='.' " style= "width:40px; height:40px">
+<input type="button" value="Exp" onclick="document.formName.calDisplay.value =Math.exp(document.formName.calDisplay.value) " style= "width:40px; height:40px">
+<input type="button" value="=" onclick="document.formName.calDisplay.value = eval(document.formName.calDisplay.value) " 
+style= "width:40px; height:40px">
+<input type="button" value="PI" onclick="document.formName.calDisplay.value +=Math.PI " style= "width:40px; height:40px;">
+<input type="button" value="+" onclick="signPlus() +='+' " style= "width:40px; height:80px;position:relative; top:20px;">
+<br/>
+
+<input type="button" value="^" onclick="Math.pow(document.formName.calDisplay.value)='^'" style= "width:40px; height:40px;">
+</p>
+</tr></th>
+</tbody>
+</table>
+</p>
+</form>
+<hr size="20px" width="90%" color="red">
+</center>
+<script>
+
+function signDiv(){
+//javascript todo function value for division
+document.formName.calDisplay.value +="/";
+document.formName.calDisplay.style.textAlign="right";
+}
+function signMult(){
+//javascript todo function value for multiplication
+document.formName.calDisplay.value +="*";
+document.formName.calDisplay.style.textAlign="right";
+}
+function signMod()
+{
+//javascript todo function value for percentage
+document.formName.calDisplay.value +="%";
+document.formName.calDisplay.style.textAlign="right";
+}
+function signMinus()
+{
+document.formName.calDisplay.value +="-";
+document.formName.calDisplay.style.textAlign="right";
+}
+function signPlus()
+{
+document.formName.calDisplay.value +="+";
+document.formName.calDisplay.style.textAlign="right";
+
+}
+function signClear()
+{
+//javascript todo function value clear input
+document.formName.calDisplay.value ="";
+document.formName.calDisplay.style.textAlign="right";
+}
+
+</script>
+</body>
+</html>
